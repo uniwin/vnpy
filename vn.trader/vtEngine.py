@@ -88,6 +88,13 @@ class MainEngine(object):
             self.gatewayDict['XSPEED'].setQryEnabled(True)
         except Exception, e:
             print e          
+            
+        try:
+            from qdpGateway.qdpGateway import QdpGateway
+            self.addGateway(QdpGateway, 'QDP')
+            self.gatewayDict['QDP'].setQryEnabled(True)
+        except Exception, e:
+            print e
         
         try:
             from ksgoldGateway.ksgoldGateway import KsgoldGateway
@@ -257,9 +264,9 @@ class MainEngine(object):
             db = self.dbClient[dbName]
             collection = db[collectionName]
             cursor = collection.find(d)
-            return cursor
+            return list(cursor)
         else:
-            return None
+            return []
         
     #----------------------------------------------------------------------
     def dbUpdate(self, dbName, collectionName, d, flt, upsert=False):
@@ -288,6 +295,12 @@ class MainEngine(object):
     def getAllWorkingOrders(self):
         """查询所有的活跃的委托（返回列表）"""
         return self.dataEngine.getAllWorkingOrders()
+    
+    #----------------------------------------------------------------------
+    def getAllGatewayNames(self):
+        """查询引擎中所有可用接口的名称"""
+        return self.gatewayDict.keys()
+        
     
 
 ########################################################################
