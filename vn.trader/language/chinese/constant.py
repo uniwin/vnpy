@@ -27,6 +27,7 @@ STATUS_NOTTRADED = u'未成交'
 STATUS_PARTTRADED = u'部分成交'
 STATUS_ALLTRADED = u'全部成交'
 STATUS_CANCELLED = u'已撤销'
+STATUS_REJECTED = u'拒单'
 STATUS_UNKNOWN = u'未知'
 
 # 合约类型常量
@@ -59,6 +60,7 @@ EXCHANGE_SHFE = 'SHFE'     # 上期所
 EXCHANGE_CZCE = 'CZCE'     # 郑商所
 EXCHANGE_DCE = 'DCE'       # 大商所
 EXCHANGE_SGE = 'SGE'       # 上金所
+EXCHANGE_INE = 'INE'       # 国际能源交易中心
 EXCHANGE_UNKNOWN = 'UNKNOWN'# 未知交易所
 EXCHANGE_NONE = ''          # 空交易所
 EXCHANGE_HKEX = 'HKEX'      # 港交所
